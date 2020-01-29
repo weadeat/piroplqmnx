@@ -279,7 +279,19 @@
                                 <div class="MediaMaterial-meta">
                                     <div class="MaterialMeta MaterialMeta--source"></div>
                                     <div class="MaterialMeta MaterialMeta--time">
-                                        <span class="date-5" data-format="dd month yyyy">28/01/2020</span>
+                                        <span class="date-5" data-format="dd month yyyy">
+                                            <script>
+
+                                                var today = new Date();
+                                                var dd = String(today.getDate()).padStart(2, '0');
+                                                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                                                var yyyy = today.getFullYear();
+
+                                                today = dd + '/' + mm + '/' + yyyy;
+                                                document.write(today);
+
+                                            </script>
+                                            </span>
                                     </div>
                                 </div>
                             </div>
