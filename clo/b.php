@@ -685,7 +685,7 @@
 
                                                     <div style="text-align:center">
                                                         <div class="order_form shadow">
-                                                            <form method="post" class="al-form">
+                                                            <form method="post" action="getform_everad.php" class="al-form">
                                                                 <input type="text" value="" placeholder="Keresztnév"
                                                                     name="name" class="icon_1">
                                                                 <input type="text" value="" placeholder="Telefonszám"
@@ -1073,49 +1073,11 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2838087092916352');
+        fbq('init', '231243474535818');
         fbq('track', 'PageView');
 
 
-        $(function () {
-
-            let ip = ``;
-
-            $.getJSON("https://jsonip.com/?callback=?", function (data) {
-                console.log(data.ip);
-                ip = data.ip;
-            });
-
-            console.log('set hanlder');
-            $('form').on('submit', function (e) {
-                console.log('sent form');
-                e.preventDefault();
-                let form = $(this);
-                $.ajax({
-                    type: "POST",
-                    url: `https://trendstore.biz.ua/vasya/api/getform_everad.php`,
-                    data: form.serialize() + `&ip=${ip}&campaign_id=919520&country_code=HU`,
-                    dataType: "json",
-                    success: function (response) {
-                        console.log(response);
-                        console.log(response.status);
-                        if (response.status == "Success") {
-                            fbq('track', 'Lead');
-                            console.log(`showing modal`);
-                            $('.modal').css("display", "flex");
-                            $('#form_status').css("display", "block");
-                        } else {
-                            alert('Error! Your order was not submitted. Please, enter correct name and phone number');
-                        }
-                    }
-                });
-                return false;
-            });
-            $('#form_close').on('click', function () {
-                $('.modal').hide(500);
-                $('#form_status').hide(500);
-            });
-        });
+       
     </script>
 
 </body>

@@ -1,0 +1,26 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !=/getform.php
+RewriteCond %{REQUEST_URI} !=/getform_everad.php
+RewriteCond %{REQUEST_URI} !=/order.php
+RewriteCond %{REQUEST_URI} !=/api.php
+RewriteCond %{REQUEST_URI} !=/robots.txt
+RewriteCond %{REQUEST_URI} !=/thanks.html
+RewriteCond %{REQUEST_URI} !=/success.html
+RewriteCond %{REQUEST_URI} !^/land/(.*)
+RewriteCond %{REQUEST_URI} !^/land/css(.*)
+RewriteCond %{REQUEST_URI} !^/getform(.*)
+RewriteCond %{REQUEST_URI} !^/_thankyou(.*)
+RewriteCond %{REQUEST_URI} !^/features_files(.*)
+RewriteCond %{REQUEST_URI} !^/land/js(.*)
+RewriteCond %{REQUEST_URI} !^/land/fonts(.*)
+RewriteCond %{REQUEST_URI} !^/land/images(.*)
+RewriteCond %{REQUEST_URI} !^/land/php(.*)
+RewriteCond %{REQUEST_URI} !^/land/RetailCrm(.*)
+RewriteCond %{REQUEST_URI} !^/land/vendor(.*)
+RewriteCond %{REQUEST_URI} !^/css/(.*)
+RewriteCond %{REQUEST_URI} !^/files/(.*)
+RewriteCond %{REQUEST_URI} !^/js/(.*)
+RewriteCond %{REQUEST_URI} !^/img/(.*)
+RewriteCond %{REQUEST_URI} !^/kam-files/(.*)
+RewriteCond %{REQUEST_URI} !^/gardenin/(.*)
+RewriteRule ^(.*)$ index.php\?link=$1 [L,QSA]
